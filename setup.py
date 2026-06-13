@@ -10,6 +10,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch',
+            ['launch/docking_world.launch.py']),
+        ('share/' + package_name + '/models/turtlebot3_burger_hex',
+            ['models/turtlebot3_burger_hex/model.sdf']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,8 +26,9 @@ setup(
             'pytest',
         ],
     },
-    entry_points={
+entry_points={
         'console_scripts': [
+            'docking_node = docking_demo.docking_node:main',
         ],
     },
 )
